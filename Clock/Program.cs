@@ -10,6 +10,12 @@ namespace Clock
     {
         static void Main(string[] args)
         {
+            var clock = new Clock(12, 4, 37, "UTC+1", true);
+            clock.DisplayTime();
+
+            Console.WriteLine("Press any key to exit...");
+            Console.ReadKey();
+
         }
     }
 }
