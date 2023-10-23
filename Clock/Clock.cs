@@ -49,12 +49,25 @@ namespace Clock
             if (this.is24HourFormat)
             {
                 Console.WriteLine($"{this.hour}:{this.minute}:{this.second}");
+            } else
+            {
+                var ampm = "";
+                var hours12 = 12;
+                if (this.hour > 12) {
+                    ampm = "PM";
+                    hours12 = this.hour - 12; 
+                } else
+                {
+                    ampm = "AM";
+                    hours12 = this.hour;
+                }
+                Console.WriteLine($"{hours12}:{this.minute}:{this.second} {ampm}");
             }
         }
 
-        public void SetTimeZone(string timeZone) 
-        { 
-            this.timeZone = timeZone; 
+        public void SetTimeZone(string timeZone)
+        {
+            this.timeZone = timeZone;
         }
 
         void ToggleTimeFormat()
@@ -62,11 +75,22 @@ namespace Clock
             if (this.is24HourFormat)
             {
                 this.is24HourFormat = false;
-            }else
+            } else
             {
                 this.is24HourFormat = true;
             }
         }
+        // return hour
+        public int GetCurrentHour()
+        {
+            return this.hour;
+        }
+        // return minute 
+        public int GetCurrentMinute()
+        { 
+            return this.minute; 
+        }
+
 
     }
 }
